@@ -20,7 +20,7 @@ do{
 }while($x <= 2);
 
 // Condition if/else + opérateurs logiques
-$int = 8;
+$int = 10;
 
 if($int >= 0 && $int <= 10){
     echo "Nous sommes entre 0 et 10";
