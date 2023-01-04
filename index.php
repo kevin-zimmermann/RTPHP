@@ -1,67 +1,67 @@
+<!--<form method="post" action="index.php">-->
+<!--<input type="text" name="username">-->
+<!--    <input type="password" name="password">-->
+<!--    <input type="submit" value="envoyer">-->
+<!--</form>-->
+<form method="get">
+    <label for="username">Votre nom:</label>
+    <input type="text" name="username">
+    <label for="username">Votre mot de passe:</label>
+    <input type="text" name="password">
+    <input type="submit">
+</form>
 <?php
+//var_dump($_POST);
+//
+//if (!empty($_POST)) {
+//    if ($_POST['username'] !== '' && $_POST['password'] !== '') {
+//        $username = $_POST['username'];
+//        $password = $_POST['password'];
+//
+//        ?>
+<!--        --><?php
+//        if (isset($username) && isset($password)) { ?>
+<!--            <p> Votre username est: --><?php //= $username ?><!-- et votre mot de passe est: --><?php //= $password ?><!-- </p>-->
+<!--        --><?php //} elseif (!isset($username)) { ?>
+<!--            <p> Vous avez pas défini de pseudo</p>-->
+<!--        --><?php //} elseif (!isset($password)) { ?>
+<!--            <p> Vous avez pas défini de mot de passe</p>-->
+<!--        --><?php //}
+//    }
+//} ?>
 
-//Fonction array native à PHP
-$arrayPhp = array('eau', 'coca-cola', 'fanta', 'oasis', 'pespi');
-var_dump($arrayPhp);
-//parcourir le tableau
-for ($i=0; $i < count($arrayPhp); $i++){
-    echo "<b>".$arrayPhp[$i] . "</b>". "<br/>";
+<?php
+var_dump($_GET);
+
+if (!empty($_GET)) {
+    if ($_GET['username'] !== '' && $_GET['password'] !== '') {
+        $username = $_GET['username'];
+        $password = $_GET['password'];
+
+        ?>
+        <?php
+        if (isset($username) && isset($password)) { ?>
+            <p> Votre username est: <?= $username ?> et votre mot de passe est: <?= $password ?> </p>
+        <?php } elseif (!isset($username)) { ?>
+            <p> Vous avez pas défini de pseudo</p>
+        <?php } elseif (!isset($password)) { ?>
+            <p> Vous avez pas défini de mot de passe</p>
+        <?php }
+    }
 }
-//$i = 0;
-//while(isset($arrayPhp[$i])){
-//    echo $arrayPhp[$i]."<br>";
-//    $i+=1;
-//}
-echo $arrayPhp[0];
+?>
+    <table style="border: 1px black solid">
+        <thead>
+        <th>username</th>
+        <th>password</th>
+        </thead>
+        <tbody>
+        <?php if(isset($username)){ ?>
+                    <td><?= $username;?></td>
+     <?php  } ?>
+        <?php if(isset($password)){ ?>
+            <td><?= $password;?></td>
+        <?php  } ?>
+        </tbody>
 
-// Équivalence sans utiliser de fonction PHP
-$arrayAuto = ['eau', 'coca-cola', 'fanta', 'oasis', 'pespi'];
-var_dump($arrayAuto);
-foreach ($arrayAuto as $key => $value) {
-    echo "<p> la clé est " . $key . " est la valeur associée est " . $value;
-}
-echo $arrayPhp[1];
-
-
-//Créer un tableau "à la main" 1 ligne = 1 clé/index et sa valeur associée
-$array[0] = 'eau';
-$array[1] = 'coca-cola';
-$array[2] = 'fanta';
-$array[3] = 'oasis';
-$array[4] = 'pespi';
-
-var_dump($array);
-
-// Tableau associatif
-$arrayUser = ['prenom' => 'x',
-    'nom' => 'y',
-    'email' => 'email@email.com',
-    'username' => 'username xy',
-];
-var_dump($arrayUser);
-echo $arrayUser['email'];
-foreach ($arrayUser as $key => $value) {
-    echo "<p> la clé est " . $key . " est la valeur associée est " . $value;
-}
-
-//Tableau multidimensionnel
-$arrayUserMulti = [
-    ['prenom' => 'x',
-        'nom' => 'y',
-        'email' => 'email@email.com',
-        'username' => 'username xy',
-    ],
-    ['prenom' => 'z',
-    'nom' => 'a',
-    'email' => 'email2@email2.com',
-    'username' => 'username az',
-],
-];
-var_dump($arrayUserMulti);
-
-echo $arrayUserMulti[1]['username'];
-
-
-$str = "Ceci est une chaîne de caractères de 47 index";
-echo "<p>".strlen($str)."</p>";
-echo $str[1];
+    </table>
