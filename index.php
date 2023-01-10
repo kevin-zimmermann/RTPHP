@@ -3,7 +3,7 @@
 <!--    <input type="password" name="password">-->
 <!--    <input type="submit" value="envoyer">-->
 <!--</form>-->
-<form method="get">
+<form action="index2.php">
     <label for="username">Votre nom:</label>
     <input type="text" name="username">
     <label for="username">Votre mot de passe:</label>
@@ -34,7 +34,7 @@
 var_dump($_GET);
 
 if (!empty($_GET)) {
-    if ($_GET['username'] !== '' && $_GET['password'] !== '') {
+    if ($_GET['username'] != '' && $_GET['password'] != '') {
         $username = $_GET['username'];
         $password = $_GET['password'];
 
@@ -42,12 +42,8 @@ if (!empty($_GET)) {
         <?php
         if (isset($username) && isset($password)) { ?>
             <p> Votre username est: <?= $username ?> et votre mot de passe est: <?= $password ?> </p>
-        <?php } elseif (!isset($username)) { ?>
-            <p> Vous avez pas défini de pseudo</p>
-        <?php } elseif (!isset($password)) { ?>
-            <p> Vous avez pas défini de mot de passe</p>
-        <?php }
-    }
+<?php    }
+}
 }
 ?>
     <table style="border: 1px black solid">
@@ -56,12 +52,7 @@ if (!empty($_GET)) {
         <th>password</th>
         </thead>
         <tbody>
-        <?php if(isset($username)){ ?>
-                    <td><?= $username;?></td>
-     <?php  } ?>
-        <?php if(isset($password)){ ?>
-            <td><?= $password;?></td>
-        <?php  } ?>
+
         </tbody>
 
     </table>
